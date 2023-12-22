@@ -1,0 +1,88 @@
+{
+    "name": "topthink/think",
+    "description": "the new thinkphp framework",
+    "type": "project",
+    "keywords": [
+        "framework",
+        "thinkphp",
+        "ORM"
+    ],
+    "homepage": "https://www.thinkphp.cn/",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "liu21st",
+            "email": "liu21st@gmail.com"
+        },
+        {
+            "name": "yunwuxin",
+            "email": "448901948@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0.0",
+        "topthink/framework": "^8.0",
+        "topthink/think-orm": "^3.0",
+        "topthink/think-filesystem": "^2.0",
+        "topthink/think-migration": "^3.1",
+        "topthink/think-helper": "^3.1",
+        "topthink/think-multi-app": "^1.0",
+        "topthink/think-queue": "^3.0",
+        "topthink/think-view": "^2.0",
+        "firebase/php-jwt": "^6.10",
+        "sunmking/think8-queue": "^1.0",
+        "ext-xlswriter": "*",
+        "ext-bcmath": "*",
+        "casbin/think-authz": "^1.7"
+    },
+    "require-dev": {
+        "topthink/think-trace": "^1.0",
+        "laravel/pint": "^1.10",
+        "brainmaestro/composer-git-hooks": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        },
+        "psr-0": {
+            "": "extend/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "hooks": {
+            "pre-commit": [
+                "composer fix-style"
+            ],
+            "pre-push": [
+                "composer check-style"
+            ]
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php think service:discover",
+            "@php think vendor:publish"
+        ],
+        "post-update-cmd": [
+            "cghooks remove",
+            "cghooks add --ignore-lock",
+            "cghooks update"
+        ],
+        "post-merge": "composer install",
+        "post-install-cmd": [
+            "cghooks remove",
+            "cghooks add --ignore-lock",
+            "cghooks update"
+        ],
+        "cghooks": "vendor/bin/cghooks",
+        "check-style": "vendor/bin/pint --config=pint.json --test",
+        "fix-style": "vendor/bin/pint --config=pint.json"
+    },
+    "scripts-descriptions": {
+        "check-style": "Run style checks (only dry run - no fixing!).",
+        "fix-style": "Run style checks and fix violations."
+    }
+}
