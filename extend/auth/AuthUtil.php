@@ -2,12 +2,12 @@
 
 namespace auth;
 
-use think\db\exception\DataNotFoundException;
-use think\db\exception\DbException;
-use think\db\exception\ModelNotFoundException;
+use think\Model;
 use think\facade\Db;
 use think\facade\Request;
-use think\Model;
+use think\db\exception\DbException;
+use think\db\exception\DataNotFoundException;
+use think\db\exception\ModelNotFoundException;
 
 class AuthUtil
 {
