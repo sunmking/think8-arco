@@ -32,8 +32,7 @@
         "firebase/php-jwt": "^6.10",
         "sunmking/think8-queue": "^1.0",
         "ext-xlswriter": "*",
-        "ext-bcmath": "*",
-        "casbin/think-authz": "^1.7"
+        "ext-bcmath": "*"
     },
     "require-dev": {
         "topthink/think-trace": "^1.0",

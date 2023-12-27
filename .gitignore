@@ -7,9 +7,7 @@ Thumbs.db
 /.idea
 /.vscode
 /vendor
-/.settings
-/.buildpath
-/.project
+
 /node_modules
 /public/storage/uploads/*
 cghooks.lock
